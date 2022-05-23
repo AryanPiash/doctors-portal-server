@@ -93,6 +93,7 @@ async function run() {
       res.send(services)
     })
 
+    // gettin all users
     app.get('/users', verifyJWT, async (req, res) => {
       const users = await usersCollection.find().toArray();
       res.send(users)
@@ -125,7 +126,7 @@ async function run() {
 
     })
 
-    
+    // update users with email
     app.put('/users/:email', async (req, res) => {
       const email = req.params.email;
       const users = req.body;
